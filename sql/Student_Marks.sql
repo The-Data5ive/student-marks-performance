@@ -19,3 +19,21 @@ FROM studentsperformance;
 
 -- Check the table structure
 DESCRIBE studentsperformance;
+
+-- Finding duplicate values
+SELECT 
+    `gender`,`race/ethnicity`,`parental level of education`,`lunch`,
+    `test preparation course`,`math score`,`reading score`,
+    `writing score`,
+    COUNT(*) AS duplicate_count
+FROM studentsperformance
+GROUP BY 
+    `gender`,
+    `race/ethnicity`,
+    `parental level of education`,
+    `lunch`,
+    `test preparation course`,
+    `math score`,
+    `reading score`,
+    `writing score`
+HAVING COUNT(*) > 1;

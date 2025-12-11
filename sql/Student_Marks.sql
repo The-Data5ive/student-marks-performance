@@ -37,3 +37,4 @@ GROUP BY
     `reading score`,
     `writing score`
 HAVING COUNT(*) > 1;
+

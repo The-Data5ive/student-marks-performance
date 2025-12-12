@@ -73,3 +73,10 @@ SELECT gender,
 FROM studentsperformance
 GROUP BY gender;
 
+-- Performance per Test Preparation Course:
+SELECT `test preparation course`,
+       AVG(average_score) AS avg_score,
+       SUM(CASE WHEN pass_status='pass' THEN 1 ELSE 0 END) AS total_pass,
+       SUM(CASE WHEN pass_status='fail' THEN 1 ELSE 0 END) AS total_fail
+FROM studentsperformance
+GROUP BY `test preparation course`;

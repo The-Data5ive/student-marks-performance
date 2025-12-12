@@ -20,6 +20,8 @@ FROM studentsperformance;
 -- Check the table structure
 DESCRIBE studentsperformance;
 
+-- Week 2
+
 -- Finding duplicate values
 SELECT 
     `gender`,`race/ethnicity`,`parental level of education`,`lunch`,
@@ -57,3 +59,17 @@ SET pass_status =
     
     
 select * from studentsperformance limit 10;
+
+-- Week 3
+
+-- Average, max, and min scores per gender
+SELECT gender,
+       AVG(`math score`) AS avg_math,
+       AVG(`reading score`) AS avg_reading,
+       AVG(`writing score`) AS avg_writing,
+       MAX(`math score`) AS max_math,
+       MIN(`math score`) AS min_math,
+       COUNT(*) AS total_students
+FROM studentsperformance
+GROUP BY gender;
+

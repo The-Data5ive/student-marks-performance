@@ -80,3 +80,27 @@ SELECT `test preparation course`,
        SUM(CASE WHEN pass_status='fail' THEN 1 ELSE 0 END) AS total_fail
 FROM studentsperformance
 GROUP BY `test preparation course`;
+
+-- Performance by Parental Education
+SELECT `parental level of education`,
+       AVG(average_score) AS avg_score,
+       COUNT(*) AS total_students
+FROM studentsperformance
+GROUP BY `parental level of education`
+ORDER BY avg_score DESC;
+
+SELECT 
+    gender,
+    AVG(`math score`) AS avg_math,
+    AVG(`reading score`) AS avg_reading,
+    AVG(`writing score`) AS avg_writing,
+    AVG(average_score) AS avg_overall
+FROM studentsperformance
+GROUP BY gender;
+
+
+SELECT *
+FROM studentsperformance;
+
+
+

@@ -38,3 +38,22 @@ GROUP BY
     `writing score`
 HAVING COUNT(*) > 1;
 
+-- Create Derived Columns
+-- Average Score
+ALTER TABLE studentsperformance
+ADD average_score DECIMAL(5,2);
+
+UPDATE studentsperformance
+SET average_score = (`math score` + `reading score` + `writing score`) / 3;
+
+
+-- Pass/Fail (Pass = 50+)
+UPDATE studentsperformance
+SET pass_status = 
+    CASE 
+        WHEN average_score >= 50 THEN 'pass'
+        ELSE 'fail'
+    END;
+    
+    
+select * from studentsperformance limit 10;
